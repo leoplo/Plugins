@@ -4,14 +4,18 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-//TODO Comment
+/* The compiler will generate a serialVersionUID if the developer didn't define it. In addition, this class is not serialized in this project. */
 @SuppressWarnings("serial")
 public class MainWindow extends JFrame {
 	protected final int height = 700;
 	protected final int width = 700;
+	protected JScrollPane jScrollPane;
+	protected JMenuBar toolsMenuBar;
 	protected JMenu toolsMenu;
 	protected JTextArea textArea;
 
@@ -19,31 +23,17 @@ public class MainWindow extends JFrame {
 		setSize(this.height, this.width);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(true);
-		// this.setBackground(Color.WHITE);
 		setTitle("Text Editor");
 		setLayout(new BorderLayout());
-		createMenu();
-		createTextArea();
-		add(this.textArea, BorderLayout.CENTER);
-		addJMenuItem("To lowercase");
-		add(this.toolsMenu, BorderLayout.NORTH);
-		setVisible(true);
-	}
-
-	private JMenu createMenu() {
-		toolsMenu = new JMenu("Tools");
-		return toolsMenu;
-
-	}
-
-	private JTextArea createTextArea() {
+		toolsMenuBar = new JMenuBar();
 		textArea = new JTextArea();
-		return textArea;
-
-	}
-
-	private void addJMenuItem(String name) {
-		toolsMenu.add(new JMenuItem(name));
+		jScrollPane = new JScrollPane(textArea);
+		add(this.jScrollPane, BorderLayout.CENTER);
+		toolsMenu = new JMenu("Tools");
+		toolsMenuBar.add(toolsMenu);
+		setJMenuBar(toolsMenuBar);
+		setVisible(true);
+		toolsMenu.add(new JMenuItem("TMP"));
 	}
 
 	public static void main(String[] args) {
