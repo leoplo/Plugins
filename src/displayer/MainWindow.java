@@ -1,6 +1,8 @@
 package displayer;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -8,6 +10,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import pluginManager.PluginFinder;
 
 /* The compiler will generate a serialVersionUID if the developer didn't define it. In addition, this class is not serialized in this project. */
 @SuppressWarnings("serial")
@@ -36,8 +40,11 @@ public class MainWindow extends JFrame {
 		toolsMenu.add(new JMenuItem("TMP"));
 	}
 
-	public static void main(String[] args) {
-		new MainWindow();
+	public static void main(String[] args) throws IOException {
+		MainWindow mainWindow = new MainWindow();
+		PluginFinder pluginFinder = new PluginFinder(new File("dropins"),mainWindow.toolsMenu);
+
+		
 	}
 
 }

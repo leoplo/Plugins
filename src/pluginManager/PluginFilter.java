@@ -1,4 +1,4 @@
-package plugins;
+package pluginManager;
 
 import java.io.File;
 import java.io.FilenameFilter;
