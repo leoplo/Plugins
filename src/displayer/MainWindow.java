@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JFrame;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -20,7 +18,7 @@ public class MainWindow extends JFrame {
 	protected final int width = 700;
 	protected JScrollPane jScrollPane;
 	protected JMenuBar toolsMenuBar;
-	protected JMenu toolsMenu;
+	protected Tools toolsMenu;
 	protected JTextArea textArea;
 
 	public MainWindow() {
@@ -33,18 +31,16 @@ public class MainWindow extends JFrame {
 		textArea = new JTextArea();
 		jScrollPane = new JScrollPane(textArea);
 		add(this.jScrollPane, BorderLayout.CENTER);
-		toolsMenu = new JMenu("Tools");
+		toolsMenu = new Tools();
 		toolsMenuBar.add(toolsMenu);
 		setJMenuBar(toolsMenuBar);
 		setVisible(true);
-		toolsMenu.add(new JMenuItem("TMP"));
 	}
 
 	public static void main(String[] args) throws IOException {
 		MainWindow mainWindow = new MainWindow();
-		PluginFinder pluginFinder = new PluginFinder(new File("dropins"),mainWindow.toolsMenu);
+		PluginFinder pluginFinder = new PluginFinder(new File("dropins"), mainWindow.toolsMenu);
 
-		
 	}
 
 }
