@@ -4,7 +4,7 @@ import java.io.File;
 
 import javax.swing.Timer;
 
-import displayer.Tools;
+import displayer.MainWindow;
 
 public class PluginFinder {
 	protected PluginFilter filter;
@@ -12,8 +12,8 @@ public class PluginFinder {
 	protected Timer timer;
 	protected PluginsChangedLogger pluginsChangedLogger;
 
-	public PluginFinder(File directory, Tools toolsMenu) {
-		this.pluginsChangedLogger = new PluginsChangedLogger(toolsMenu);
+	public PluginFinder(File directory, MainWindow mainWindow) {
+		this.pluginsChangedLogger = new PluginsChangedLogger(mainWindow);
 		this.directory = directory;
 		filter = new PluginFilter();
 		timer = new Timer(1000, action -> {
