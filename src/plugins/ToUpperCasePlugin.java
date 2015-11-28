@@ -1,6 +1,8 @@
 package plugins;
 
-public class ToUpperCase implements Plugin {
+import plugins.globalstrings.GlobalStrings;
+
+public class ToUpperCasePlugin implements Plugin {
 
 	@Override
 	public String transform(String text) {
@@ -9,7 +11,7 @@ public class ToUpperCase implements Plugin {
 
 	@Override
 	public String getLabel() {
-		return "To Upper Case";
+		return GlobalStrings.PLUGIN_LABEL_TOUPPERCASE;
 	}
 
 }

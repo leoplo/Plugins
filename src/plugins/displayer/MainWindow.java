@@ -1,4 +1,4 @@
-package displayer;
+package plugins.displayer;
 
 import java.awt.BorderLayout;
 import java.io.File;
@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import pluginManager.PluginFinder;
+import plugins.pluginManager.PluginFinder;
 import plugins.Plugin;
 
 /* The compiler will generate a serialVersionUID if the developer didn't define it. In addition, this class is not serialized in this project. */

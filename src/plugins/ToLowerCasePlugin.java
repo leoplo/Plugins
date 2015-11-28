@@ -1,6 +1,8 @@
 package plugins;
 
-public class ToLowerCase implements Plugin {
+import plugins.globalstrings.GlobalStrings;
+
+public class ToLowerCasePlugin implements Plugin {
 
 	@Override
 	public String transform(String text) {
@@ -9,7 +11,7 @@ public class ToLowerCase implements Plugin {
 
 	@Override
 	public String getLabel() {
-		return "To Lower Case";
+		return GlobalStrings.PLUGIN_LABEL_TOLOWERCASE;
 	}
 
 }
