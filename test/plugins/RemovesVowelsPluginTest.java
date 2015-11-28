@@ -11,7 +11,7 @@ public class RemovesVowelsPluginTest extends PluginTest {
 
 	@Override
 	public void testTransform() {
-		String vowels = "aeiouxy";
+		String vowels = "aeiouy";
 		String helloWorld = "Hello world!";
 		String helloWorldWithoutVowels = "Hll wrld!";
 		
