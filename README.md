@@ -1,7 +1,9 @@
 # Plugins
-Group: 1<br/>
-<br/>
-Authors:<br/>
-Alexandre Bécart<br/>
-Clément Dumazy<br/>
-Léo-Paul Géneau<br/>
+**Group:** 1
+
+**Students:**
+* Alexandre Bécart
+* Clément Dumazy
+* Léo-Paul Géneau
+
+**Git Repositery:** [https://github.com/leoplo/Plugins](https://github.com/leoplo/Plugins)
