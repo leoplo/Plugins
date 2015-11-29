@@ -1,11 +1,9 @@
-package pluginManager;
+package plugins.pluginManager;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.JMenuItem;
-
-import displayer.MainWindow;
+import plugins.displayer.MainWindow;
 
 public class PluginsChangedLogger {
 	protected Set<String> pluginsList;

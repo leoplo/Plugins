@@ -1,10 +1,10 @@
-package pluginManager;
+package plugins.pluginManager;
 
 import java.io.File;
 
 import javax.swing.Timer;
 
-import displayer.MainWindow;
+import plugins.displayer.MainWindow;
 
 public class PluginFinder {
 	protected PluginFilter filter;

@@ -1,8 +1,7 @@
-package pluginManager;
+package plugins.pluginManager;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.net.URL;
 
 import plugins.Plugin;
 
