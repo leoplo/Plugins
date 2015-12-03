@@ -13,14 +13,13 @@ public class CaesarCipher1PluginTest extends PluginTest {
 	public void testTransform() {
 		String helloWorld = "Hello world!";
 		String encodedHelloWorld = "Ifmmp xpsme!";
-		
+
 		assertEquals(encodedHelloWorld, this.pluginTest.transform(helloWorld));
 	}
 
 	@Override
 	public void testGetLabel() {
-		assertEquals(	String.format(GlobalStrings.PLUGIN_LABEL_CAESARCIPHER, 1),
-						this.pluginTest.getLabel());
+		assertEquals(String.format(GlobalStrings.PLUGIN_LABEL_CAESARCIPHER, 1), this.pluginTest.getLabel());
 	}
 
 }

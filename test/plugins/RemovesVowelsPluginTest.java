@@ -14,11 +14,11 @@ public class RemovesVowelsPluginTest extends PluginTest {
 		String vowels = "aeiouy";
 		String helloWorld = "Hello world!";
 		String helloWorldWithoutVowels = "Hll wrld!";
-		
+
 		assertEquals(helloWorldWithoutVowels, this.pluginTest.transform(helloWorld));
 		assertTrue(this.pluginTest.transform(vowels).isEmpty());
 	}
-	
+
 	@Override
 	public void testGetLabel() {
 		assertEquals(GlobalStrings.PLUGIN_LABEL_REMOVESVOWELS, this.pluginTest.getLabel());

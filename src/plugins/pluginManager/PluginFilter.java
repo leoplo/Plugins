@@ -2,6 +2,8 @@ package plugins.pluginManager;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.List;
 
 import plugins.Plugin;
 
@@ -31,9 +33,18 @@ public class PluginFilter implements FilenameFilter {
 		return returnValue;
 	}
 
-	public Plugin[] fileArrayToPluginArray(File[] acceptedFiles) {
-		// TODO Convertir en instance Plugin
-		return null;
+	public List<Plugin> fileArrayToPluginArray(String[] acceptedFiles) {
+		List<Plugin> plugins = new ArrayList<Plugin>();
+		for (int i = 0; i < acceptedFiles.length; i++) {
+			try {
+				plugins.add((Plugin) Class
+						.forName("plugins." + acceptedFiles[i].substring(0, acceptedFiles[i].length() - 6))
+						.newInstance());
+			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return plugins;
 	}
 
 }

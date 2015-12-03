@@ -15,20 +15,20 @@ import plugins.globalstrings.GlobalStrings;
 // The compiler will generate a serialVersionUID if the developer didn't define
 // it. In addition, this class is not serialized in this project.
 public class EditorFrame extends JFrame {
-	
+
 	// Dimension
 	protected static final int MINIMUM_HEIGHT = 300;
 	protected static final int MINIMUM_WIDTH = 300;
 	protected static final int DEFAULT_HEIGHT = 600;
 	protected static final int DEFAULT_WIDTH = 600;
-	
+
 	// Menu
 	protected JMenuBar menuBar;
 	protected JMenu toolsMenu;
 
 	protected JScrollPane jScrollPane;
 	protected JTextArea textArea;
-	
+
 	public EditorFrame() {
 		this.setTitle(GlobalStrings.FRAME_TITLE);
 		this.setMinimumSize(new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT));
@@ -40,7 +40,7 @@ public class EditorFrame extends JFrame {
 		this.createMenu();
 		this.textArea = new JTextArea();
 		this.jScrollPane = new JScrollPane(this.textArea);
-		this.add(this.jScrollPane, BorderLayout.CENTER);		
+		this.add(this.jScrollPane, BorderLayout.CENTER);
 	}
 
 	protected void createMenu() {

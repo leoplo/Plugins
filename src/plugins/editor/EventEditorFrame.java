@@ -1,6 +1,7 @@
 package plugins.editor;
 
 import java.io.File;
+import java.util.List;
 
 import javax.swing.JMenuItem;
 
@@ -12,7 +13,7 @@ import plugins.pluginManager.PluginObserver;
 public class EventEditorFrame extends EditorFrame implements PluginObserver {
 
 	protected PluginFinder pluginFinder;
-	
+
 	public EventEditorFrame(File pluginDirectory) {
 		this.pluginFinder = new PluginFinder(pluginDirectory);
 		this.pluginFinder.registerObserver(this);
@@ -20,14 +21,16 @@ public class EventEditorFrame extends EditorFrame implements PluginObserver {
 	}
 
 	@Override
-	public void updatePlugins(Plugin[] plugins) {
+	public void updatePlugins(List<Plugin> plugins) {
 		this.toolsMenu.removeAll();
-		
-		for(Plugin pluginToAdd : plugins) {
-			// TODO Connecter l'evenement
+
+		for (Plugin pluginToAdd : plugins) {
 			JMenuItem menuItem = new JMenuItem(pluginToAdd.getLabel());
+			menuItem.addActionListener(actionListener -> {
+				textArea.setText(pluginToAdd.transform(textArea.getText()));
+			});
 			this.toolsMenu.add(menuItem);
 		}
 	}
-	
+
 }
