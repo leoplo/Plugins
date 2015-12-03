@@ -14,13 +14,13 @@ public class ToUpperCasePluginTest extends PluginTest {
 		String helloWorld = "Hello world!";
 		String helloWorldInUpperCase = "HELLO WORLD!";
 		String transformedText = this.pluginTest.transform(helloWorld);
-		
-		for(Character c : transformedText.toCharArray()) {
-			if(Character.isLetter(c)) {
+
+		for (Character c : transformedText.toCharArray()) {
+			if (Character.isLetter(c)) {
 				assertTrue(Character.isUpperCase(c));
 			}
 		}
-		
+
 		assertEquals(helloWorldInUpperCase, transformedText);
 	}
 

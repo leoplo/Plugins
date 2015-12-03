@@ -1,43 +1,21 @@
 package plugins.pluginManager;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Calendar;
+import java.util.List;
 
 import plugins.displayer.MainWindow;
+import plugins.Plugin;
 
-public class PluginsChangedLogger {
-	protected Set<String> pluginsList;
-	protected MainWindow mainWindow;
+public class PluginsChangedLogger implements PluginObserver {
 
-	public PluginsChangedLogger(MainWindow mainWindow) {
-		pluginsList = new HashSet<String>();
-		this.mainWindow = mainWindow;
-	}
+	@Override
+	public void updatePlugins(List<Plugin> plugins) {
+		System.out.println("[" + Calendar.getInstance().getTime() + "]");
+		System.out.println("List of plugins : ");
 
-	public void update(String[] acceptedFiles) {
-		for (String file : acceptedFiles) {
-			if (pluginsList.add(file)) {
-				System.out.println("add " + file);
-
-				mainWindow.addPlugin(file);
-			}
+		for (Plugin plugin : plugins) {
+			System.out.println(plugin.getLabel());
 		}
-
-		for (String oldPlugin : pluginsList) {
-			boolean pluginMustBeRemoved = true;
-			for (String currentPlugin : acceptedFiles) {
-				if (oldPlugin.equals(currentPlugin)) {
-					pluginMustBeRemoved = false;
-					break;
-				}
-			}
-			if (pluginMustBeRemoved) {
-				System.out.println("remove " + oldPlugin);
-				pluginsList.remove(oldPlugin);
-				mainWindow.removePlugin(oldPlugin);
-			}
-		}
-
 	}
 
 }
