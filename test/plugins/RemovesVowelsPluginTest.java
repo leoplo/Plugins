@@ -11,11 +11,12 @@ public class RemovesVowelsPluginTest extends PluginTest {
 
 	@Override
 	public void testTransform() {
-		String vowels = "aeiouy";
+		String vowels = "aeiouyAEIOUY";
 		String helloWorld = "Hello world!";
 		String helloWorldWithoutVowels = "Hll wrld!";
 		
 		assertEquals(helloWorldWithoutVowels, this.pluginTest.transform(helloWorld));
+		assertEquals(helloWorldWithoutVowels.toUpperCase(), this.pluginTest.transform(helloWorld.toUpperCase()));
 		assertTrue(this.pluginTest.transform(vowels).isEmpty());
 	}
 	

@@ -6,7 +6,7 @@ public class RemovesVowelsPlugin implements Plugin {
 
 	@Override
 	public String transform(String text) {
-		return text.replaceAll("[aeiouy]", "");
+		return text.replaceAll("[aeiouyAEIOUY]", "");
 	}
 
 	@Override
