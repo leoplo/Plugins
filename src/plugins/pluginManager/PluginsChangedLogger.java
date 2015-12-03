@@ -3,7 +3,6 @@ package plugins.pluginManager;
 import java.util.Calendar;
 import java.util.List;
 
-import plugins.displayer.MainWindow;
 import plugins.Plugin;
 
 public class PluginsChangedLogger implements PluginObserver {

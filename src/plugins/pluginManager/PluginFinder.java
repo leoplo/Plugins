@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.swing.Timer;
 
-import plugins.displayer.MainWindow;
 import plugins.Plugin;
 
 public class PluginFinder implements ActionListener {
