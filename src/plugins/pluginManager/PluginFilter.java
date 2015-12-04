@@ -22,8 +22,9 @@ public class PluginFilter implements FilenameFilter {
 			 * classLoader.loadClass(name.substring(0, name.length() - 6));
 			 * System.out.println(classToTest.getName());
 			 */
+			
 			Class.forName("plugins." + name.substring(0, name.length() - 6)).newInstance();
-			returnValue = new File("bin/plugins/" + name).exists()
+			returnValue = new File("dropins/plugins/" + name).exists()
 					&& Plugin.class.isAssignableFrom(Class.forName("plugins." + name.substring(0, name.length() - 6)))
 					&& name.endsWith(".class");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
