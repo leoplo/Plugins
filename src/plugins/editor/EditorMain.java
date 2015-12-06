@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 
 public class EditorMain {
 
-	public static final String DEFAULT_DIRECTORY_LOCATION = "./dropins/plugins/";
+	public static final String DEFAULT_DIRECTORY_LOCATION = "./dropins";
 	public static String DIRECTORY_LOCATION;
 
 	public static void main(String[] args) {

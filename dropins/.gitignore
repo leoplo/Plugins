@@ -1,0 +1,5 @@
+# .gitignore dropins
+
+*
+!.gitignore
+!*.class
