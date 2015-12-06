@@ -13,7 +13,7 @@ import plugins.Plugin;
 
 public class PluginFinder implements ActionListener {
 
-	public static final int TIMER_DELAY = 1000;
+	public static final int TIMER_DELAY = 1_000; // 1sec
 
 	protected PluginFilter pluginFilter;
 	protected File directory;
