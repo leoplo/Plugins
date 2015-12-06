@@ -43,6 +43,10 @@ public class PluginFinder implements ActionListener {
 			this.timer.stop();
 		}
 	}
+	
+	public List<PluginObserver> getObservers() {
+		return this.observers;
+	}
 
 	public void registerObserver(PluginObserver pluginObserver) {
 		this.observers.add(pluginObserver);
