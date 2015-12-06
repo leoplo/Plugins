@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.Timer;
@@ -18,18 +19,17 @@ public class PluginFinder implements ActionListener {
 	protected File directory;
 	protected Timer timer;
 	protected List<PluginObserver> observers;
-	protected List<Plugin> plugins;
+	protected File[] files;
 
 	public PluginFinder(File directory) {
 		this.directory = directory;
 		this.pluginFilter = new PluginFilter();
-		this.timer = new Timer(TIMER_DELAY, this);
 		this.observers = new ArrayList<PluginObserver>();
-		this.plugins = new ArrayList<Plugin>();
+		this.timer = new Timer(TIMER_DELAY, this);
 	}
 
-	public String[] acceptedFiles() {
-		return this.directory.list(this.pluginFilter);
+	public File[] acceptedFiles() {
+		return this.directory.listFiles(this.pluginFilter);
 	}
 
 	public void startTimer() {
@@ -39,7 +39,9 @@ public class PluginFinder implements ActionListener {
 	}
 
 	public void stopTimer() {
-		this.timer.stop();
+		if(this.timer.isRunning()) {
+			this.timer.stop();
+		}
 	}
 
 	public void registerObserver(PluginObserver pluginObserver) {
@@ -50,41 +52,22 @@ public class PluginFinder implements ActionListener {
 		this.observers.remove(pluginObserver);
 	}
 
-	protected void notifyObservers(List<Plugin> newPlugins) {
+	protected void notifyObservers(Plugin[] newPlugins) {
 		List<PluginObserver> observersToNotify = new ArrayList<PluginObserver>(this.observers);
 
 		for (PluginObserver observer : observersToNotify) {
 			observer.updatePlugins(newPlugins);
 		}
-		this.plugins = newPlugins;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		List<Plugin> newPlugins = this.pluginFilter.fileArrayToPluginArray(this.acceptedFiles());
+		File[] newFiles = this.acceptedFiles();
 
-		if (plugins.isEmpty()) {
+		if (!Arrays.equals(this.files, newFiles)) {
+			Plugin[] newPlugins = this.pluginFilter.fileArrayToPluginArray(newFiles);
 			this.notifyObservers(newPlugins);
-			return;
-		}
-
-		boolean aPluginMustBeRemoved = true;
-		for (Plugin plugin : plugins) {
-			for (Plugin newPlugin : newPlugins) {
-				if (plugins.contains(newPlugin)) {
-					this.notifyObservers(newPlugins);
-					return;
-				}
-				if (newPlugin.getLabel().equals(plugin.getLabel())) {
-					aPluginMustBeRemoved = false;
-					break;
-				}
-			}
-		}
-		if (aPluginMustBeRemoved) {
-			this.notifyObservers(newPlugins);
-			this.plugins = newPlugins;
-
+			this.files = newFiles;
 		}
 	}
 
