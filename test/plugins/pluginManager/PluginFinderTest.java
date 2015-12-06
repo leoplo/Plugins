@@ -25,10 +25,7 @@ public class PluginFinderTest {
 		
 		for(int i = 0;i < mocksPluginObserver.length; i++) {
 			mocksPluginObserver[i] = new MockPluginObserver();
-		}
-		
-		for(MockPluginObserver mock : mocksPluginObserver) {
-			pluginFinder.registerObserver(mock);
+			pluginFinder.registerObserver(mocksPluginObserver[i]);
 		}
 		
 		pluginFinder.notifyObservers(null);
