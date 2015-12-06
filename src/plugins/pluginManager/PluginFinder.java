@@ -56,7 +56,7 @@ public class PluginFinder implements ActionListener {
 		this.observers.remove(pluginObserver);
 	}
 
-	protected void notifyObservers(Plugin[] newPlugins) {
+	protected void notifyObservers(List<Plugin> newPlugins) {
 		List<PluginObserver> observersToNotify = new ArrayList<PluginObserver>(this.observers);
 
 		for (PluginObserver observer : observersToNotify) {
@@ -69,7 +69,7 @@ public class PluginFinder implements ActionListener {
 		File[] newFiles = this.acceptedFiles();
 
 		if (!Arrays.equals(this.files, newFiles)) {
-			Plugin[] newPlugins = this.pluginFilter.fileArrayToPluginArray(newFiles);
+			List<Plugin> newPlugins = this.pluginFilter.fileArrayToPluginList(newFiles);
 			this.notifyObservers(newPlugins);
 			this.files = newFiles;
 		}

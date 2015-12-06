@@ -1,6 +1,7 @@
 package plugins.editor;
 
 import java.io.File;
+import java.util.List;
 
 import javax.swing.JMenuItem;
 
@@ -20,7 +21,7 @@ public class EventEditorFrame extends EditorFrame implements PluginObserver {
 	}
 
 	@Override
-	public void updatePlugins(Plugin[] plugins) {
+	public void updatePlugins(List<Plugin> plugins) {
 		this.toolsMenu.removeAll();
 
 		for (Plugin pluginToAdd : plugins) {

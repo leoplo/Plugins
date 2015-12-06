@@ -1,5 +1,7 @@
 package plugins.pluginManager;
 
+import java.util.List;
+
 import plugins.Plugin;
 
 public class MockPluginObserver implements PluginObserver {
@@ -11,7 +13,7 @@ public class MockPluginObserver implements PluginObserver {
 	}
 	
 	@Override
-	public void updatePlugins(Plugin[] newPlugins) {
+	public void updatePlugins(List<Plugin> newPlugins) {
 		this.hasBeenUpdated = true;
 	}
 
