@@ -8,6 +8,7 @@ import javax.swing.JMenuItem;
 import plugins.Plugin;
 import plugins.pluginManager.PluginFinder;
 import plugins.pluginManager.PluginObserver;
+import plugins.pluginManager.PluginsChangedLogger;
 
 @SuppressWarnings("serial")
 public class EventEditorFrame extends EditorFrame implements PluginObserver {
@@ -17,6 +18,7 @@ public class EventEditorFrame extends EditorFrame implements PluginObserver {
 	public EventEditorFrame(File pluginDirectory) {
 		this.pluginFinder = new PluginFinder(pluginDirectory);
 		this.pluginFinder.registerObserver(this);
+		this.pluginFinder.registerObserver(new PluginsChangedLogger());
 		this.pluginFinder.startTimer();
 	}
 
