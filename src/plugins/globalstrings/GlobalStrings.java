@@ -1,6 +1,9 @@
 package plugins.globalstrings;
 
 public class GlobalStrings {
+	
+	public static final String DEFAULT_DIRECTORY_LOCATION = "./dropins/plugins";
+	
 	// Plugin
 	public static final String PLUGIN_LABEL_TOLOWERCASE = "To Lower Case";
 	public static final String PLUGIN_LABEL_TOUPPERCASE = "To Upper Case";
