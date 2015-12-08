@@ -6,11 +6,11 @@ import javax.swing.SwingUtilities;
 
 public class EditorMain {
 
-	
+	public static String DEFAULT_DIRECTORY_LOCATION = "./dropins/plugins";
 	public static String DIRECTORY_LOCATION;
 
 	public static void main(String[] args) {
-		DIRECTORY_LOCATION = (args.length >= 1 ? args[0] : "./dropins/plugins");
+		DIRECTORY_LOCATION = (args.length >= 1 ? args[0] : DEFAULT_DIRECTORY_LOCATION);
 
 		SwingUtilities.invokeLater(new Runnable() {
 
