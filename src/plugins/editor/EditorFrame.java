@@ -9,8 +9,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import plugins.globalstrings.GlobalStrings;
-
 @SuppressWarnings("serial")
 // The compiler will generate a serialVersionUID if the developer didn't define
 // it. In addition, this class is not serialized in this project.
@@ -30,7 +28,7 @@ public class EditorFrame extends JFrame {
 	protected JTextArea textArea;
 
 	public EditorFrame() {
-		this.setTitle(GlobalStrings.FRAME_TITLE);
+		this.setTitle("Extendable Editor");
 		this.setMinimumSize(new Dimension(MINIMUM_WIDTH, MINIMUM_HEIGHT));
 		this.setSize(DEFAULT_HEIGHT, DEFAULT_WIDTH);
 		this.setResizable(true);
@@ -45,7 +43,7 @@ public class EditorFrame extends JFrame {
 
 	protected void createMenu() {
 		this.menuBar = new JMenuBar();
-		this.toolsMenu = new JMenu(GlobalStrings.MENU_TOOLS);
+		this.toolsMenu = new JMenu("Tools");
 		this.menuBar.add(this.toolsMenu);
 		this.setJMenuBar(this.menuBar);
 	}

@@ -1,7 +1,7 @@
 package plugins;
 
-import static org.junit.Assert.*;
-import plugins.globalstrings.GlobalStrings;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RemovesVowelsPluginTest extends PluginTest {
 
@@ -22,7 +22,7 @@ public class RemovesVowelsPluginTest extends PluginTest {
 
 	@Override
 	public void testGetLabel() {
-		assertEquals(GlobalStrings.PLUGIN_LABEL_REMOVESVOWELS, this.pluginTest.getLabel());
+		assertEquals("Removes voyels", this.pluginTest.getLabel());
 	}
 
 }

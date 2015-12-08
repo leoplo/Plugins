@@ -1,7 +1,5 @@
 package plugins;
 
-import plugins.globalstrings.GlobalStrings;
-
 public class CaesarCipherPlugin implements Plugin {
 
 	protected int shift;
@@ -28,7 +26,7 @@ public class CaesarCipherPlugin implements Plugin {
 
 	@Override
 	public String getLabel() {
-		return String.format(GlobalStrings.PLUGIN_LABEL_CAESARCIPHER, this.shift);
+		return String.format("Caesar cipher %d", this.shift);
 	}
 
 }

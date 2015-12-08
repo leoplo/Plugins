@@ -1,7 +1,7 @@
 package plugins;
 
-import static org.junit.Assert.*;
-import plugins.globalstrings.GlobalStrings;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ToUpperCasePluginTest extends PluginTest {
 
@@ -26,7 +26,7 @@ public class ToUpperCasePluginTest extends PluginTest {
 
 	@Override
 	public void testGetLabel() {
-		assertEquals(GlobalStrings.PLUGIN_LABEL_TOUPPERCASE, this.pluginTest.getLabel());
+		assertEquals("To Upper Case", this.pluginTest.getLabel());
 	}
 
 }

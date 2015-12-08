@@ -1,7 +1,6 @@
 package plugins;
 
-import static org.junit.Assert.*;
-import plugins.globalstrings.GlobalStrings;
+import static org.junit.Assert.assertEquals;
 
 public class CaesarCipher1PluginTest extends PluginTest {
 
@@ -19,7 +18,7 @@ public class CaesarCipher1PluginTest extends PluginTest {
 
 	@Override
 	public void testGetLabel() {
-		assertEquals(String.format(GlobalStrings.PLUGIN_LABEL_CAESARCIPHER, 1), this.pluginTest.getLabel());
+		assertEquals(String.format("Caesar cipher %d", 1), this.pluginTest.getLabel());
 	}
 
 }

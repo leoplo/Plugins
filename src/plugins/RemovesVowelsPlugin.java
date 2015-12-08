@@ -1,7 +1,5 @@
 package plugins;
 
-import plugins.globalstrings.GlobalStrings;
-
 public class RemovesVowelsPlugin implements Plugin {
 
 	@Override
@@ -11,7 +9,7 @@ public class RemovesVowelsPlugin implements Plugin {
 
 	@Override
 	public String getLabel() {
-		return GlobalStrings.PLUGIN_LABEL_REMOVESVOWELS;
+		return "Removes voyels";
 	}
 
 }
