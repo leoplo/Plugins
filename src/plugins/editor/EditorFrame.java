@@ -15,10 +15,10 @@ import javax.swing.JTextArea;
 public class EditorFrame extends JFrame {
 
 	// Dimension
-	protected static final int MINIMUM_HEIGHT = 300;
-	protected static final int MINIMUM_WIDTH = 300;
-	protected static final int DEFAULT_HEIGHT = 600;
-	protected static final int DEFAULT_WIDTH = 600;
+	public static final int MINIMUM_HEIGHT = 300;
+	public static final int MINIMUM_WIDTH = 300;
+	public static final int DEFAULT_HEIGHT = 600;
+	public static final int DEFAULT_WIDTH = 600;
 
 	// Menu
 	protected JMenuBar menuBar;
