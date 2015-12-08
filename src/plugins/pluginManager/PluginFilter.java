@@ -11,9 +11,15 @@ public class PluginFilter implements FilenameFilter {
 
 	@Override
 	public boolean accept(File directory, String name) {
+		if(!name.endsWith(".class")) {
+			return false;
+		}
+		
+		String pluginName = name.substring(0, name.length() - 6);
+		
 		try {
-			return name.endsWith(".class")
-					&& Plugin.class.isAssignableFrom(Class.forName("plugins." + name.substring(0, name.length() - 6)));
+			Class<?> pluginClass = Class.forName("plugins." + pluginName);
+			return Plugin.class.isAssignableFrom(pluginClass);
 		} catch (ClassNotFoundException e) {
 			return false;
 		}
@@ -24,11 +30,11 @@ public class PluginFilter implements FilenameFilter {
 		
 		for (File file : acceptedFiles) {
 			String fileName = file.getName();
+			String pluginName = fileName.substring(0, fileName.length() - 6);
 			
 			try {
-				Plugin plugin = (Plugin) Class
-						.forName("plugins." + fileName.substring(0, fileName.length() - 6))
-						.newInstance();
+				Class<?> pluginClass = Class.forName("plugins." + pluginName);
+				Plugin plugin = (Plugin) pluginClass.newInstance();
 				plugins.add(plugin);
 			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 				// nothing to do
