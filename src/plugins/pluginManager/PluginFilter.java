@@ -11,12 +11,12 @@ public class PluginFilter implements FilenameFilter {
 
 	@Override
 	public boolean accept(File directory, String name) {
-		if(!name.endsWith(".class")) {
+		if (!name.endsWith(".class")) {
 			return false;
 		}
-		
+
 		String pluginName = name.substring(0, name.length() - 6);
-		
+
 		try {
 			Class<?> pluginClass = Class.forName("plugins." + pluginName);
 			return Plugin.class.isAssignableFrom(pluginClass);
@@ -27,11 +27,11 @@ public class PluginFilter implements FilenameFilter {
 
 	public List<Plugin> fileArrayToPluginList(File[] acceptedFiles) {
 		List<Plugin> plugins = new ArrayList<Plugin>();
-		
+
 		for (File file : acceptedFiles) {
 			String fileName = file.getName();
 			String pluginName = fileName.substring(0, fileName.length() - 6);
-			
+
 			try {
 				Class<?> pluginClass = Class.forName("plugins." + pluginName);
 				Plugin plugin = (Plugin) pluginClass.newInstance();
@@ -40,7 +40,7 @@ public class PluginFilter implements FilenameFilter {
 				// nothing to do
 			}
 		}
-		
+
 		return plugins;
 	}
 
