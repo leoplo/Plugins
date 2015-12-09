@@ -15,5 +15,13 @@ public class PluginFilterTest {
 		
 		assertFalse(pluginFilter.accept(directory, "MyPlugin"));
 		assertFalse(pluginFilter.accept(directory, "MyPlugin.class"));
+		assertTrue(pluginFilter.accept(directory, "RemovesVowelsPlugin.class"));
+	}
+	
+	@Test
+	public void fileArrayToPluginListTest() {
+		PluginFilter pluginFilter = new PluginFilter();
+		File[] files = { new File("MyPlugin.class") };
+		assertTrue(pluginFilter.fileArrayToPluginList(files).isEmpty());
 	}
 }
