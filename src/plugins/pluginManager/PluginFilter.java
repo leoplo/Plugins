@@ -9,6 +9,12 @@ import java.util.List;
 
 import plugins.Plugin;
 
+/**
+ * This is a filter which only accepts file which ends with ".class", implements
+ * plugins.Plugins, belongs to the package plugins and adds a constructor with
+ * no parameter.
+ *
+ */
 public class PluginFilter implements FilenameFilter {
 
 	@Override
@@ -23,8 +29,7 @@ public class PluginFilter implements FilenameFilter {
 			Class<?> pluginClass = Class.forName("plugins." + pluginName);
 			List<Constructor<?>> constructors = Arrays.asList(pluginClass.getConstructors());
 
-			return Plugin.class.isAssignableFrom(pluginClass)
-					&& pluginClass.getPackage().getName().equals("plugins")
+			return Plugin.class.isAssignableFrom(pluginClass) && pluginClass.getPackage().getName().equals("plugins")
 					&& constructors.stream().anyMatch(c -> c.getParameterTypes().length == 0);
 		} catch (ClassNotFoundException | NoClassDefFoundError e) {
 			return false;

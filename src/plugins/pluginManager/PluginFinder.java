@@ -39,11 +39,11 @@ public class PluginFinder implements ActionListener {
 	}
 
 	public void stopTimer() {
-		if(this.timer.isRunning()) {
+		if (this.timer.isRunning()) {
 			this.timer.stop();
 		}
 	}
-	
+
 	public List<PluginObserver> getObservers() {
 		return this.observers;
 	}

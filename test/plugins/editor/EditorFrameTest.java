@@ -15,5 +15,5 @@ public class EditorFrameTest {
 		assertEquals("Extendable Editor", editorFrame.getTitle());
 		assertEquals(defaultDimension, editorFrame.getSize());
 	}
-	
+
 }

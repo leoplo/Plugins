@@ -19,11 +19,11 @@ public class EventEditorFrameTest {
 	public void updatePluginTest() {
 		EventEditorFrame eventEditorFrame = new EventEditorFrame(new File(""));
 		List<Plugin> plugins = new ArrayList<Plugin>();
-		
+
 		plugins.add(new ToUpperCasePlugin());
 		plugins.add(new RemovesVowelsPlugin());
 		plugins.add(new ToLowerCasePlugin());
-		
+
 		assertEquals(0, eventEditorFrame.toolsMenu.getItemCount());
 		eventEditorFrame.updatePlugins(plugins);
 		assertEquals(plugins.size(), eventEditorFrame.toolsMenu.getItemCount());

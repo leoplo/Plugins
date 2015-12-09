@@ -12,12 +12,12 @@ public class PluginFilterTest {
 	public void acceptTest() {
 		PluginFilter pluginFilter = new PluginFilter();
 		File directory = new File("src/plugins");
-		
+
 		assertFalse(pluginFilter.accept(directory, "MyPlugin"));
 		assertFalse(pluginFilter.accept(directory, "MyPlugin.class"));
 		assertTrue(pluginFilter.accept(directory, "RemovesVowelsPlugin.class"));
 	}
-	
+
 	@Test
 	public void fileArrayToPluginListTest() {
 		PluginFilter pluginFilter = new PluginFilter();
