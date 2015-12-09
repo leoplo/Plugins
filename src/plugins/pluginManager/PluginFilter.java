@@ -2,7 +2,9 @@ package plugins.pluginManager;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import plugins.Plugin;
@@ -19,8 +21,12 @@ public class PluginFilter implements FilenameFilter {
 
 		try {
 			Class<?> pluginClass = Class.forName("plugins." + pluginName);
-			return Plugin.class.isAssignableFrom(pluginClass);
-		} catch (ClassNotFoundException e) {
+			List<Constructor<?>> constructors = Arrays.asList(pluginClass.getConstructors());
+
+			return Plugin.class.isAssignableFrom(pluginClass)
+					&& pluginClass.getPackage().getName().equals("plugins")
+					&& constructors.stream().anyMatch(c -> c.getParameterTypes().length == 0);
+		} catch (ClassNotFoundException | NoClassDefFoundError e) {
 			return false;
 		}
 	}
