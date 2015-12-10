@@ -12,7 +12,7 @@ import javax.swing.Timer;
 import plugins.Plugin;
 
 /**
- * check each second if all plugins are available in the editor
+ * Check each second if new plugins are available.
  */
 public class PluginFinder implements ActionListener {
 
