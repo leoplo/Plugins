@@ -11,6 +11,10 @@ import javax.swing.Timer;
 
 import plugins.Plugin;
 
+/**
+ * This class detect plugins adding and deleting with a timer which check the
+ * plugin filter every second.
+ */
 public class PluginFinder implements ActionListener {
 
 	public static final int TIMER_DELAY = 1_000; // 1sec
@@ -35,12 +39,6 @@ public class PluginFinder implements ActionListener {
 	public void startTimer() {
 		if (!this.timer.isRunning()) {
 			this.timer.start();
-		}
-	}
-
-	public void stopTimer() {
-		if (this.timer.isRunning()) {
-			this.timer.stop();
 		}
 	}
 
