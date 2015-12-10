@@ -21,7 +21,11 @@ public class PluginFilterTest {
 	@Test
 	public void fileArrayToPluginListTest() {
 		PluginFilter pluginFilter = new PluginFilter();
-		File[] files = { new File("MyPlugin.class") };
-		assertTrue(pluginFilter.fileArrayToPluginList(files).isEmpty());
+
+		File[] filesWithoutPlugin = { new File("MyPlugin.class") };
+		assertTrue(pluginFilter.fileArrayToPluginList(filesWithoutPlugin).isEmpty());
+
+		File[] filesWith1Plugin = { new File("MyPlugin.class"), new File("RemovesVowelsPlugin.class") };
+		assertEquals(1, pluginFilter.fileArrayToPluginList(filesWith1Plugin).size());
 	}
 }
