@@ -11,6 +11,9 @@ import javax.swing.Timer;
 
 import plugins.Plugin;
 
+/**
+ * check each second if all plugins are available in the editor
+ */
 public class PluginFinder implements ActionListener {
 
 	public static final int TIMER_DELAY = 1_000; // 1sec

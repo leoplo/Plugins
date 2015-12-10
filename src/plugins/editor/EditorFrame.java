@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 // it. In addition, this class is not serialized in this project.
 public class EditorFrame extends JFrame {
 
-	// Dimension
+	// Dimensions
 	public static final int MINIMUM_HEIGHT = 300;
 	public static final int MINIMUM_WIDTH = 300;
 	public static final int DEFAULT_HEIGHT = 600;
@@ -47,5 +47,4 @@ public class EditorFrame extends JFrame {
 		this.menuBar.add(this.toolsMenu);
 		this.setJMenuBar(this.menuBar);
 	}
-
 }
