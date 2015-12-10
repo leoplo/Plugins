@@ -13,7 +13,6 @@ import plugins.Plugin;
  * This is a filter which only accepts files which end with ".class", implements
  * plugins.Plugins, belongs to the package plugins and adds a constructor with
  * no parameter.
- *
  */
 public class PluginFilter implements FilenameFilter {
 

@@ -9,6 +9,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * This class is the main frame of this application. It contains a JTextArea to
+ * write text to modify and a JMenu to select plugin to use.
+ *
+ */
 @SuppressWarnings("serial")
 // The compiler will generate a serialVersionUID if the developer didn't define
 // it. In addition, this class is not serialized in this project.
